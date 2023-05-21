@@ -31,7 +31,8 @@ class Pumkingman {
         // console.log(xx)
         if (xx< -100) {
             if (dead){
-                clearInterval(runPunkTime)
+                this.tanElm.style.display=`none`;
+                // clearInterval(runPunkTime)
             }
             this.tanElm.style.left = `${110}%`
             let xx = `${100}vw`;
@@ -64,6 +65,7 @@ createPumkTime=setInterval(()=>{
 },5000)
 
 runPunkTime=setInterval(()=> {
+
     array.forEach(pumking=>{
         pumking.move()
     });
