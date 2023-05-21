@@ -1,24 +1,18 @@
 const boxElm = document.createElement('div');
 boxElm.classList.add('box');
 document.body.append(boxElm);
-let tanElm;
-    tanElm = document.createElement('div');
-    tanElm.classList.add('boxtan');
-    document.body.append(tanElm);
 
-
-    setInterval(()=> {
-        drawRunTan();
-    }, (1000/20));
 
 
 let jump = false;
+let jumpdone = true;
+let dead = false;
 let slide = false;
 let run = false;
 let shoot = false;
 let dx = 0;
 let k = 1;
-let w = 1;
+let d = 1;
 let i = 1;
 let s = 1;
 let l = 1;
@@ -35,7 +29,7 @@ document.body.addEventListener('keydown', (eventData)=> {
         run = true;
         forward=true;
         dx = 2;
-        console.log(run)
+        // console.log(run)
     }else if (eventData.code === 'ArrowLeft'){
         run = true;
         forward=false;
@@ -43,10 +37,10 @@ document.body.addEventListener('keydown', (eventData)=> {
     }
     if (eventData.shiftKey){
         slide = true;
-        console.log(slide)
+        // console.log(slide)
     }else{
         slide = false;
-        console.log(slide)
+        // console.log(slide)
     }
 });
 
@@ -54,7 +48,7 @@ document.body.addEventListener('keyup', (eventData) => {
     if (eventData.code === 'ArrowRight'){
         run = false;
         dx = 0;
-        console.log(run)
+        // console.log(run)
 
     }else if (eventData.code === 'ArrowLeft'){
         run = false;
@@ -96,6 +90,7 @@ function doJump(){
     if (angle >  180){
         jump = false;
         angle = 0;
+        jumpdone=true;
     }
 }
 
@@ -107,11 +102,7 @@ function doRun(){
     boxElm.style.left = `${x}px`;
 }
 
-function doRunTan(){
-    let xx = tanElm.offsetLeft - 2;
-    if (xx+150 < 0) tanElm.style.display=`none`;
-    tanElm.style.left = `${xx}px`;
-}
+
 
 function drawIdle(){
     boxElm.style.backgroundImage = `url('img/Idle (${i++}).png')`;
@@ -132,7 +123,22 @@ function drawSlide(){
     }
     boxElm.style.backgroundImage = `url('img/Slide (${i++}).png')`;
     if(i === 11) i = 1;
-    console.log("slide")
+    // console.log("slide")
+}function drawDead(){
+    if(forward){
+        boxElm.style.transform=`scaleX(1)`;
+    }else{
+        boxElm.style.transform=`scaleX(-1)`;
+    }
+    boxElm.style.backgroundImage = `url('img/Dead (${d++}).png')`;
+    if(d === 10) {
+        d = 1;
+        clearInterval(intervalAlive)
+        // clearInterval(runPunkTime)
+        clearInterval(createPumkTime)
+        clearInterval(intervalMove)
+    }
+    // console.log("dead:",d)
 }
 
 function drawShoot(){
@@ -143,7 +149,7 @@ function drawShoot(){
     }
     boxElm.style.backgroundImage = `url('img/Shoot (${s++}).png')`;
     if(s === 4) s = 1;
-    console.log("slide")
+    // console.log("slide")
 }
 
 function drawRun(){
@@ -154,14 +160,7 @@ function drawRun(){
     }
     boxElm.style.backgroundImage = `url('img/Run (${k++}).png')`;
     if(k === 8) k = 1;
-    console.log("run");
-}
-
-function drawRunTan(){
-    console.log("uuuu")
-    tanElm.style.backgroundImage = `url('img/jackfree/Run (${w++}).png')`;
-    if(w === 8) w = 1;
-
+    // console.log("run");
 }
 
 function drawJump(){
@@ -172,41 +171,39 @@ function drawJump(){
     }
     boxElm.style.backgroundImage = `url('img/Jump (${l++}).png')`;
     if(l === 10) l = 1;
-    console.log("jump");
+    // console.log("jump");
 }
 
-setInterval(()=> {
+intervalMove=setInterval(()=> {
     manX=boxElm.offsetLeft
     manY=boxElm.offsetTop
-
-    // console.log(manX)
-    // console.log(manY)
-
+    // console.log("MAn: ",manX,manY,innerHeight)
     if (run){
         doRun();
     }
     if (jump){
         doJump();
     }
-    doRunTan();
 }, 5);
 
-setInterval(()=> {
-    // drawRunTan();
-    if(!run && !jump && shoot){
+intervalAlive=setInterval(()=> {
+    if(!run && !jump && shoot && !dead){
         drawShoot();
     }
-    if(!run && !jump && !shoot){
+    if(!run && !jump && !shoot && !dead){
         drawIdle();
     }
-    if(jump && !slide){
+    if(jump && !slide && !dead){
+        jumpdone=false;
         drawJump();
     }
-    if(run && !jump && !slide){
+    if(run && !jump && !slide && !dead){
         drawRun();
     }
-    if(run && !jump && slide){
+    if(run && !jump && slide && !dead){
         drawSlide();
+    }if(dead && jumpdone){
+        drawDead();
     }
 }, (1000/20));
 

@@ -20,21 +20,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     bottom: 24vh;
-    transform: translate(-50%,-50%);
-}
-.boxtan {
-    position: absolute;
-    width: 130px;
-    height: 180px;
-    margin: 0;
-    padding: 0;
-    background-size: cover;
-    background-repeat: no-repeat;
-    bottom: 24vh;
-    left: 110%;
-    transform: translate(-50%,-50%);
-    transform: scaleX(-1);
-    z-index: 5;
+    /*transform: translate(-50%,-50%);*/
 }
 .image{
     height: 100vh;
