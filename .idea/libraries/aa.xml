@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="aa">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/aa/robotfree.zip!/" />
+      <root url="jar://$PROJECT_DIR$/aa/jackfree.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
