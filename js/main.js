@@ -50,6 +50,13 @@ function doRun() {
     boxElm.style.left = `${x}px`;
 }
 
+
+let i = 1;
+function drawIdle() {
+    boxElm.style.backgroundImage = `url('img/Idle (${i++}).png')`;
+    if (i === 11) i = 1;
+}
+
 setInterval(() => {
     if (jump) {
         doJump();
@@ -59,3 +66,4 @@ setInterval(() => {
     }
 
 }, 5);
+setInterval(() => drawIdle(), (1000 / 20));

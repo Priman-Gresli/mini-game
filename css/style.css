@@ -20,5 +20,36 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     bottom: 24vh;
-    background-color: black;
+
+}
+.image{
+    height: 100vh;
+    scroll-snap-align: center;
+    background-position: center;
+    background-size: cover;
+    background-image: url(/img/BG.png);
+    z-index: -88;
+}
+.div1{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    height: 25vh;
+    width: 100%;
+
+}
+.ground1{
+    margin: 0;
+    padding: 0;
+    bottom: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-image: url(/img/Tiles/1.png);
+    z-index: 0;
+
+
 }
