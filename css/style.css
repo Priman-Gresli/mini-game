@@ -11,3 +11,14 @@ body {
     overflow: hidden;
 }
 
+.box {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 24vh;
+    background-color: black;
+}
