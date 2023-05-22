@@ -2,13 +2,12 @@ const boxElm = document.createElement('div');
 boxElm.classList.add('box');
 document.body.append(boxElm);
 
-
-
 let jump = false;
 let jumpdone = true;
 let dead = false;
 let slide = false;
 let run = false;
+let isShoot = false;
 let shoot = false;
 let dx = 0;
 let k = 1;
@@ -59,6 +58,7 @@ document.body.addEventListener('keyup', (eventData) => {
 
 document.body.addEventListener('mousedown', (eventData) => {
     shoot=true;
+    console.log("shoot1=",shoot)
     if (eventData.button === 0){
         if(eventData.clientX>manX){
             forward=true;
@@ -70,8 +70,11 @@ document.body.addEventListener('mousedown', (eventData) => {
 });
 
 document.body.addEventListener('mouseup', (eventData) => {
-    shoot=false;
     if (eventData.button === 0){
+        // shoot=false;
+        // console.log("shoot2=",shoot)
+        isShoot = true;
+        console.log("isShoot1=",isShoot)
         if(eventData.clientX>manX){
             forward=true;
         }else{
@@ -84,7 +87,7 @@ document.body.addEventListener('mouseup', (eventData) => {
 let angle = 0;
 function doJump(){
     let y  = Math.cos(angle * (Math.PI / 180));
-    y *= 3;
+    y *= 4;
     boxElm.style.top = (boxElm.offsetTop - y) + "px";
     angle++;
     if (angle >  180){
@@ -124,7 +127,8 @@ function drawSlide(){
     boxElm.style.backgroundImage = `url('img/Slide (${i++}).png')`;
     if(i === 11) i = 1;
     // console.log("slide")
-}function drawDead(){
+}
+function drawDead(){
     if(forward){
         boxElm.style.transform=`scaleX(1)`;
     }else{
@@ -147,8 +151,14 @@ function drawShoot(){
     }else{
         boxElm.style.transform=`scaleX(-1)`;
     }
-    boxElm.style.backgroundImage = `url('img/Shoot (${s++}).png')`;
-    if(s === 4) s = 1;
+    boxElm.style.backgroundImage = `url('img/Melee (${s++}).png')`;
+    if(s === 8) {
+        s = 1;
+        shoot=false
+        console.log("shoot2=",shoot)
+        isShoot = false;
+        console.log("isShoot2=",isShoot)
+    }
     // console.log("slide")
 }
 
@@ -187,6 +197,7 @@ intervalMove=setInterval(()=> {
 }, 5);
 
 intervalAlive=setInterval(()=> {
+
     if(!run && !jump && shoot && !dead){
         drawShoot();
     }
@@ -206,6 +217,12 @@ intervalAlive=setInterval(()=> {
         drawDead();
     }
 }, (1000/20));
+
+
+
+
+
+
 
 
 
