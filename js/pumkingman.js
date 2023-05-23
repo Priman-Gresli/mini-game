@@ -33,6 +33,9 @@ class Pumkingman {
             this.tanElm.style.height = `${150}px`
             this.tanElm.style.backgroundImage = `url('img/jackfree/Dead (${this.dd++}).png')`;
             if(this.dd === 10) {
+                score+=1;
+                scoreElm.innerText="SCORE : "+score;
+                console.log("score",scoreElm)
                 this.dd = 1;
                 this.punkDead=false;
                 this.status1=true;
@@ -87,11 +90,13 @@ class Pumkingman {
             if (forward &&  this.x-manX>0){
                 if (isShoot){
                     this.punkDead=true
+
                 }
             }
             if (!forward &&  this.x-manX<0){
                 if (isShoot){
-                    this.punkDead=true
+                    this.punkDead=true;
+
                 }
             }
 

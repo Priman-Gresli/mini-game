@@ -22,6 +22,7 @@ body {
     bottom: 24vh;
     /*transform: translate(-50%,-50%);*/
 }
+
 .image{
     height: 100vh;
     scroll-snap-align: center;
@@ -258,4 +259,49 @@ display: none;
     .glowing-btn{
         font-size: 1.5em;
     }
+}
+
+
+@font-face {
+    font-family: 'Rocher';
+    src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
+}
+
+h1 {
+    position: absolute;
+    z-index: 1000;
+    font-size: 36px;
+    top: 5%;
+    left: 3%;
+    font-family: 'Rocher';
+    text-align: center;
+    font-size: 50px;
+    margin: 0;
+}
+
+@font-palette-values --Grays {
+    font-family: Rocher;
+    base-palette: 9;
+}
+
+@font-palette-values --Purples {
+    font-family: Rocher;
+    base-palette: 6;
+}
+
+@font-palette-values --Mint {
+    font-family: Rocher;
+    base-palette: 7;
+}
+
+.grays {
+    font-palette: --Grays;
+}
+
+.purples {
+    font-palette: --Purples;
+}
+
+.mint {
+    font-palette: --Mint;
 }

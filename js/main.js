@@ -1,6 +1,10 @@
 const boxElm = document.createElement('div');
+const scoreElm = document.createElement('h1');
+scoreElm.classList.add("purples")
+scoreElm.innerText="SCORE : 0"
 boxElm.classList.add('box');
 document.body.append(boxElm);
+document.body.append(scoreElm);
 
 let jump = false;
 let jumpdone = true;
@@ -19,7 +23,7 @@ let forward= true;
 let manX;
 let manY;
 
-
+let score=0;
 document.body.addEventListener('keydown', (eventData)=> {
     if (eventData.code === 'Space'){
         jump = true;
@@ -58,7 +62,7 @@ document.body.addEventListener('keyup', (eventData) => {
 
 document.body.addEventListener('mousedown', (eventData) => {
     shoot=true;
-    console.log("shoot1=",shoot)
+    // console.log("shoot1=",shoot)
     if (eventData.button === 0){
         if(eventData.clientX>manX){
             forward=true;
@@ -74,7 +78,7 @@ document.body.addEventListener('mouseup', (eventData) => {
         // shoot=false;
         // console.log("shoot2=",shoot)
         isShoot = true;
-        console.log("isShoot1=",isShoot)
+        // console.log("isShoot1=",isShoot)
         if(eventData.clientX>manX){
             forward=true;
         }else{
@@ -155,9 +159,9 @@ function drawShoot(){
     if(s === 8) {
         s = 1;
         shoot=false
-        console.log("shoot2=",shoot)
+        // console.log("shoot2=",shoot)
         isShoot = false;
-        console.log("isShoot2=",isShoot)
+        // console.log("isShoot2=",isShoot)
     }
     // console.log("slide")
 }
