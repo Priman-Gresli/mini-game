@@ -20,6 +20,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     bottom: 24vh;
+    z-index: 5;
     /*transform: translate(-50%,-50%);*/
 }
 
@@ -41,6 +42,22 @@ body {
     width: 100%;
 
 }
+.priman{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    bottom: 0vh;
+    /*left: 15%;*/
+    width: 500px;
+    height: 500px;
+    /*object-fit: cover;*/
+    background-repeat: no-repeat;
+    /*background-image: url(/img/priman.png);*/
+    /*transform: translate(-50%,0%);*/
+    scale: 0.7;
+    background-color: red;
+    z-index: 1 !important;
+}
 .ground1{
     margin: 0;
     padding: 0;
@@ -50,10 +67,12 @@ body {
     height: 100%;
     object-fit: cover;
     background-image: url(/img/Tiles/1.png);
-    z-index: 0;
+    /*background-color: red;*/
+    /*z-index: 50 !important;*/
 
 
 }
+
 button{
 display: none;
     /*display: inline-block;*/
@@ -279,29 +298,12 @@ h1 {
     margin: 0;
 }
 
-@font-palette-values --Grays {
-    font-family: Rocher;
-    base-palette: 9;
-}
-
 @font-palette-values --Purples {
     font-family: Rocher;
-    base-palette: 6;
-}
-
-@font-palette-values --Mint {
-    font-family: Rocher;
-    base-palette: 7;
-}
-
-.grays {
-    font-palette: --Grays;
+    base-palette: 9;
 }
 
 .purples {
     font-palette: --Purples;
 }
 
-.mint {
-    font-palette: --Mint;
-}

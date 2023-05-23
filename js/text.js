@@ -16,7 +16,7 @@ function gameOver(){
 
     reloadGame.innerText="Relaod Game"
     reloadGame.style.position="absolute"
-    reloadGame.style.top = `${80}%`
+    reloadGame.style.top = `${78}%`
     reloadGame.style.left = `${50}%`
     reloadGame.style.display="inline-block"
     reloadGame.style.transform = `translate(${-50}%,${-100}%)`
@@ -28,7 +28,7 @@ function gameOver(){
     gameOverElm.style.height = `${700}px`
     gameOverElm.style.margin = `${0}`
     gameOverElm.style.padding = `${0}`
-    gameOverElm.style.top = `${40}%`
+    gameOverElm.style.top = `${32}%`
     gameOverElm.style.left = `${50}%`
     gameOverElm.style.backgroundSize = `cover`
     gameOverElm.style.backgroundRepeat = `no-repeat`

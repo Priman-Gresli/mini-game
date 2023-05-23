@@ -1,10 +1,27 @@
 const boxElm = document.createElement('div');
 const scoreElm = document.createElement('h1');
+const bordElm = document.createElement('h1');
 scoreElm.classList.add("purples")
 scoreElm.innerText="SCORE : 0"
 boxElm.classList.add('box');
 document.body.append(boxElm);
 document.body.append(scoreElm);
+bordElm.style.position = `absolute`
+
+bordElm.style.width = `${300}px`
+bordElm.style.height = `${300}px`
+bordElm.style.margin = `${0}`
+bordElm.style.padding = `${0}`
+bordElm.style.top = `${60}%`
+bordElm.style.left = `${50}%`
+bordElm.style.backgroundSize = `cover`
+bordElm.style.backgroundRepeat = `no-repeat`
+// bordElm.style.backgroundColor = `red`
+bordElm.style.backgroundImage = `url('img/priman.png')`;
+bordElm.style.transform = `translate(${-50}%,${-50}%)`
+// bordElm.style.transform = `rotateY(${2}deg)`
+bordElm.style.zIndex = 1
+document.body.append(bordElm);
 
 let jump = false;
 let jumpdone = true;
@@ -24,6 +41,8 @@ let manX;
 let manY;
 
 let score=0;
+
+
 document.body.addEventListener('keydown', (eventData)=> {
     if (eventData.code === 'Space'){
         jump = true;
