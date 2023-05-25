@@ -86,7 +86,7 @@ class Pumkingman {
         }
         console.log("deadpunk :",manY-this.y)
         console.log("deadpunk :",this.x-manX)
-        if( (manY-this.y<=400 && manY-this.y>200) && ( this.x-manX<90 && this.x-manX>-120 ) &&!dead){
+        if( (manY-this.y<=400 && manY-this.y>200) && ( this.x-manX<100 && this.x-manX>-120 ) &&!dead){
             if (forward &&  this.x-manX>0){
                 if (isShoot){
                     this.punkDead=true
