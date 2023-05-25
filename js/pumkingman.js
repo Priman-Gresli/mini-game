@@ -75,18 +75,18 @@ class Pumkingman {
         // console.log("pumpY: ",manY-this.y)
         // console.log("pumpX: ",this.x-manX,dead)
         // (this.x-manX<10 && this.x-manX>-10 )
-        if( (manY-this.y<=340 && manY-this.y>200) && ( this.x-manX<60 && this.x-manX>-100 ) &&!dead){
-            // console.log("dead :",this.x-manX)
-            // console.log("dead :",manY-this.y)
+        console.log("dead :",manY-this.y)
+        console.log("dead :",this.x-manX)
+        if( (manY-this.y<=400 && manY-this.y>200) && ( this.x-manX<60 && this.x-manX>-100 ) &&!dead){
 
             if (!isShoot){
                 dead=true;
                 return;
             }
         }
-        if( (manY-this.y<=340 && manY-this.y>200) && ( this.x-manX<90 && this.x-manX>-120 ) &&!dead){
-            // console.log("dead :",this.x-manX)
-            // console.log("dead :",manY-this.y)
+        console.log("deadpunk :",manY-this.y)
+        console.log("deadpunk :",this.x-manX)
+        if( (manY-this.y<=400 && manY-this.y>200) && ( this.x-manX<90 && this.x-manX>-120 ) &&!dead){
             if (forward &&  this.x-manX>0){
                 if (isShoot){
                     this.punkDead=true
