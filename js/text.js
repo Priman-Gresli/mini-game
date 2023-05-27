@@ -1,7 +1,6 @@
 
 deadTime=setInterval(()=>{
     if (dead){
-        console.log("dead dead dead")
         clearInterval(deadTime)
         setTimeout(()=>{
 
@@ -14,7 +13,7 @@ let reloadGame=document.getElementById('aa');
 function gameOver(){
     const gameOverElm=document.createElement('div');
 
-    reloadGame.innerText="Relaod Game"
+    reloadGame.innerText="Reload Game"
     reloadGame.style.position="absolute"
     reloadGame.style.top = `${78}%`
     reloadGame.style.left = `${50}%`
